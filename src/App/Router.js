@@ -4,9 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 const Home = lazy(() => import('../Pages/Home'));
 
 export default function Router() {
-  return (
+  return (<div>
     <Routes>
-      <Route exact path='/' component={Home} />
+
+      <Route path='/' element={<Home />} />
     </Routes>
+  </div>
   );
 }
