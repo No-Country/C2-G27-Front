@@ -6,7 +6,6 @@ const Home = lazy(() => import('../Pages/Home'));
 export default function Router() {
   return (<div>
     <Routes>
-
       <Route path='/' element={<Home />} />
     </Routes>
   </div>
