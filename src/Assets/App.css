@@ -33,3 +33,80 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/*VARIABLES */
+:root {
+  --primary-light: #ffff;
+  --primary-light-gray: #eee;
+  --primary-dark-gray: #5B5B5B5B;
+  --primary-blue: #6FA8DC;
+
+  --secondary-red: #E06666;
+  --secondary-yellow: #FFD966;
+  --secondary-green: #93C47D;
+}
+
+/* HEADER */
+.header {
+  background: url('https://i.ibb.co/5LMBrR7/blob-haikei.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.img-container {
+  background: rgb(224, 102, 102);
+  background: linear-gradient(43deg, var(--secondary-red) 0%, var(--secondary-yellow) 100%);
+  width: 10px;
+  border-radius:75% 25% 70% 30% / 30% 51% 49% 70% ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+
+.img-container:hover{
+ border-radius:80% 20% 45% 55% / 50% 64% 36% 50%  ;
+}
+
+.nav-bg{
+  background-color: var(--secondary-red);
+  
+}
+.navegador{
+  display: flex;
+  justify-content: space-evenly;
+  width: 20%;
+
+}
+.btn-link {
+  width: 100%;
+  background: #e7520d;
+  border-radius: 20%;
+}
+
+.btn-secondary{
+  background: #e7520d !important;
+  outline: none;
+}
+
+.title,.sub-title{
+  color: #353535;;
+}
+.paragraph{
+  color: var(--primary-dark-gray);
+}
+/*FOOTER*/
+footer{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0px;
+  background-color: var(--secondary-red);
+}
+
+footer h2{
+  font-size: 20px;
+  color: var(--primary-light-gray);
+}
