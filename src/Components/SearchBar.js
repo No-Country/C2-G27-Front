@@ -4,14 +4,14 @@ import { Input, InputGroup, InputGroupText } from 'reactstrap';
 
 function SearchBar() {
   return (
-    <div>
-      <InputGroup>
-        <InputGroupText>
-          <FaSearch />
+    <div style={{ borderRadius: '10px' }}>
+      <InputGroup  >
+        <InputGroupText className='bg-danger' >
+          <FaSearch style={{ color: 'white' }} />
         </InputGroupText>
 
         <Input
-          style={{ backgroundColor: 'white', color: 'Black' }}
+          style={{ backgroundColor: 'white', color: 'white' }}
           placeholder='Placeholder'
         />
       </InputGroup>
