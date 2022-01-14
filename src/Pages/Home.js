@@ -3,8 +3,8 @@ import { Button, Col, Container, Row } from 'reactstrap';
 import Footer from '../Components/Fooder';
 import Navigation from '../Components/Navigation';
 import SearchBar from '../Components/SearchBar';
-import WidgedBoard from '../Components/WidgedBoard';
 import UserStats from '../Components/UserStats';
+import WidgetBoard from '../Components/WidgedBoard';
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
                 <Button>Filter</Button>
               </Col>
             </Row>
-            <WidgedBoard />
+            <WidgetBoard />
           </Col>
           <Col>
             <UserStats />
