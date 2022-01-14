@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export default function Fooder() {
-  return <div>
+  return (
     <footer>
-      <h2>Web powered by C2-G7-T</h2>
+      <h6>Dashboard powered by C2-G27-T</h6>
     </footer>
-  </div>;
+  );
 }

@@ -54,7 +54,7 @@ function LoginForm() {
     <div>
       <Card>
         <CardHeader>
-          <CardTitle>Log In</CardTitle>
+          <CardTitle className='m-0'>Log In</CardTitle>
         </CardHeader>
         <CardBody>
           <Form onSubmit={(e) => handleSubmit(e)}>
@@ -92,10 +92,11 @@ function LoginForm() {
                 ) : null}
               </FormText>
             </FormGroup>
-
-            <Button variant='primary' type='submit'>
+            <div className='d-flex flex-row-reverse'>
+              <Button variant='primary' type='submit'>
               Submit
-            </Button>
+              </Button>
+            </div>      
           </Form>
         </CardBody>
       </Card>
