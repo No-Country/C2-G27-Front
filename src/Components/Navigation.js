@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import {
   ProSidebar,
@@ -53,7 +54,7 @@ export default function Navigation() {
             <Menu />
           </Menu>
         </SidebarContent>
-        <SidebarFooter>
+        {/* <SidebarFooter>
           {open ? (
             ' '
           ) : (
@@ -69,7 +70,7 @@ export default function Navigation() {
               </div>
             </div>
           )}
-        </SidebarFooter>
+        </SidebarFooter> */}
       </ProSidebar>
     </div>
   );

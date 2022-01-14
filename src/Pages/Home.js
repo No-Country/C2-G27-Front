@@ -1,12 +1,20 @@
+import { Container, Row, Col } from 'reactstrap';
 import React from 'react';
-import Fooder from '../Components/Fooder';
-import Header from '../Components/Header';
 
 export default function Home() {
   return (
     <div>
-      <Header />
-      <Fooder />
+      <Container className='d-flex vh-100'>
+        <Row>
+          <Col>sidebar</Col>
+          <Col>
+            <Row>
+              <Col>Search</Col>
+              <Col>Userinfo</Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
