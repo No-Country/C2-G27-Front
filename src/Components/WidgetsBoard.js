@@ -1,7 +1,7 @@
 import React from "react";
 import '../Assets/ReactGridLayout/styles.css';
 import '../Assets/ReactResizable/styles.css';
-import { Responsive , WidthProvider } from 'react-grid-layout';
+import { Responsive, WidthProvider } from 'react-grid-layout';
 import {
   Button,
   Card,
@@ -11,6 +11,8 @@ import {
   CardText,
   CardImg
 } from 'reactstrap';
+import BarChart from './BarChart';
+import Widget from './Widget';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -34,52 +36,70 @@ function saveToLS(key, value) {
       JSON.stringify({
         [key]: value
       })
-      );
-    }
+    );
+  }
+}
+
+/* function onRemoveItem() {} */
+
+export default class WidgetsBoard extends React.PureComponent {
+  static defaultProps() {
+    return {
+      className: "layout",
+      cols: { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },
+      rowHeight: 30
+    };
   }
 
-    export default class ResponsiveLocalStorageLayout extends React.PureComponent {
-      static defaultProps() {        
-      return {
-        className: "layout",
-        cols: { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },      
-        rowHeight: 30
-      };
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      layouts: JSON.parse(JSON.stringify(originalLayouts))
+    };
+  }
 
-      constructor(props) {
-        super(props);        
-        this.state = {
-          layouts: JSON.parse(JSON.stringify(originalLayouts))
-        };
-      }
 
-      
-      
-      onLayoutChange(layout, layouts) {
-      saveToLS("layouts", layouts);
-      this.setState({ layouts });
-    }
-    
-    resetLayout() {
-      this.setState({ layouts: {} });
-    }   
-    
-    render() {
-      const {layouts}=this.state;      
-      return (
-        <div>
-            <Button onClick={() => this.resetLayout()}>Reset Layout</Button>
-            <ResponsiveReactGridLayout
-              className="layout"
-              cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
-              rowHeight={30}
-              layouts={layouts}
-              onLayoutChange={(layout, layoutss) =>
-                this.onLayoutChange(layout, layoutss)
-              }
-              >
-              <Card key="1" data-grid={{ w: 2, h: 8, x: 0, y: 0, minW: 2, minH:8 }} className='bg-info'>
+
+  onLayoutChange(layout, layouts) {
+    saveToLS("layouts", layouts);
+    this.setState({ layouts });
+  }
+
+  resetLayout() {
+    this.setState({ layouts: {} });
+  }
+
+
+
+  render() {
+    const { layouts } = this.state;
+    return (
+      <div>
+        <Button onClick={() => this.resetLayout()}>Reset Layout</Button>
+        <ResponsiveReactGridLayout
+          className="layout"
+          cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+          rowHeight={30}
+          layouts={layouts}
+          onLayoutChange={(layout, layoutss) =>
+            this.onLayoutChange(layout, layoutss)
+          }
+        >
+
+          <div
+            key='4'
+            className="widget"
+            data-grid={{ w: 3, h: 2, x: 0, y: Infinity }}
+          >
+            <Widget
+              /* id='4' */
+              title='BarChart'
+             /*  onRemoveItem={onRemoveItem} */
+              component={BarChart}
+            />
+          </div>
+
+          <Card key="1" data-grid={{ w: 2, h: 8, x: 0, y: 0, minW: 2, minH: 8 }} className='bg-info'>
             <CardHeader>
               <CardTitle>Widget #1</CardTitle>
             </CardHeader>
@@ -99,7 +119,7 @@ function saveToLS(key, value) {
               </Button>
             </CardBody>
           </Card>
-              <Card key="2" data-grid={{ w: 2, h: 6, x: 2, y: 0, minW: 2, minH: 6 }} className='bg-info'>
+          <Card key="2" data-grid={{ w: 2, h: 6, x: 2, y: 0, minW: 2, minH: 6 }} className='bg-info'>
             <CardHeader>
               <CardTitle>Widget #2</CardTitle>
             </CardHeader>
@@ -107,20 +127,20 @@ function saveToLS(key, value) {
               <CardText>
                 <p>
                   Texto descripción de la tarjeta.
-                  </p>
+                </p>
                 <p>
                   Más texto.
-                  </p>
+                </p>
                 <p>
                   y más.
-                  </p>
+                </p>
               </CardText>
               <Button variant='secondary' type='submit'>
                 Explore
               </Button>
             </CardBody>
           </Card>
-              <Card key="3" data-grid={{ w: 2, h: 4, x: 4, y: 1, minW: 2, minH: 4 }} className='bg-info'>
+          <Card key="3" data-grid={{ w: 2, h: 4, x: 4, y: 1, minW: 2, minH: 4 }} className='bg-info'>
             <CardHeader>
               <CardTitle>Widget #3</CardTitle>
             </CardHeader>
@@ -132,13 +152,9 @@ function saveToLS(key, value) {
                 Explore
               </Button>
             </CardBody>
-          </Card>           
-            </ResponsiveReactGridLayout>
-          </div>
-        );
-      }
-    }
-    
-    
-    
-    /* export default MyResponsiveGrid */
+          </Card>
+        </ResponsiveReactGridLayout>
+      </div>
+    );
+  }
+}

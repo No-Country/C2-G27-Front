@@ -4,7 +4,7 @@ import Footer from '../Components/Fooder';
 import Navigation from '../Components/Navigation';
 import SearchBar from '../Components/SearchBar';
 import UserStats from '../Components/UserStats';
-import WidgetBoard from '../Components/WidgedBoard';
+import WidgetsBoard from '../Components/WidgetsBoard';
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
                 <Button>Filter</Button>
               </Col>
             </Row>
-            <WidgetBoard />
+            <WidgetsBoard />
           </Col>
           <Col>
             <UserStats />
