@@ -52,37 +52,35 @@ img {
   margin: 4px;
 }
 
-.App{
+.App {
   display: flex;
   flex-direction: row;
   width: 100vw;
 }
 
-.homeTitle{
+.homeTitle {
   color: var(--red-bg);
   font-weight: 800;
   font-size: 1.8rem;
 }
-.userCard{
+.userCard {
   display: flex;
   align-items: flex-start;
-  font-size:2rem;
+  font-size: 2rem;
   color: var(--red-bg);
-
 }
-.userCard h5{
+.userCard h5 {
   font-size: 1.4rem;
   margin-bottom: 0;
 }
-.userCard p{
+.userCard p {
   font-size: 1rem;
 }
-.userCard--text{
-  margin-left: .5rem;
+.userCard--text {
+  margin-left: 0.5rem;
   display: flex;
   flex-direction: column;
 }
-
 
 .pro-menu-item:hover {
   background-color: rgb(255, 255, 255);
@@ -174,10 +172,9 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 30px 0px;
-  background-color: var(--red-bg);
 }
 
 footer h6 {
-  color: #ffff;
+  color: var(--red-bg);
   font-size: 1.4em;
 }
