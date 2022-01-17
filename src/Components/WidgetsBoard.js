@@ -4,15 +4,12 @@ import '../Assets/ReactResizable/styles.css';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import {
   Button,
-  Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  CardText,
-  CardImg
 } from 'reactstrap';
-import BarChart from './BarChart';
+import BarsChart from "./BarsChart";
+import LinesChart from './LinesChart';
+import PiesChart from './PiesChart'
 import Widget from './Widget';
+import ComposedsChart from './ComposedsChart'
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -40,8 +37,9 @@ function saveToLS(key, value) {
   }
 }
 
-/* function onRemoveItem() {} */
-
+const onRemoveItem = (itemId) => {
+console.log(itemId);
+};
 export default class WidgetsBoard extends React.PureComponent {
   static defaultProps() {
     return {
@@ -58,8 +56,6 @@ export default class WidgetsBoard extends React.PureComponent {
     };
   }
 
-
-
   onLayoutChange(layout, layouts) {
     saveToLS("layouts", layouts);
     this.setState({ layouts });
@@ -68,8 +64,6 @@ export default class WidgetsBoard extends React.PureComponent {
   resetLayout() {
     this.setState({ layouts: {} });
   }
-
-
 
   render() {
     const { layouts } = this.state;
@@ -87,72 +81,61 @@ export default class WidgetsBoard extends React.PureComponent {
         >
 
           <div
-            key='4'
+            key='1'
             className="widget"
-            data-grid={{ w: 3, h: 2, x: 0, y: Infinity }}
+            data-grid={{ w: 3, h: 8, x: 0, y: 0, minW: 2, minH: 6 }}
           >
             <Widget
-              /* id='4' */
-              title='BarChart'
-             /*  onRemoveItem={onRemoveItem} */
-              component={BarChart}
-            />
+              id='1'
+              title='Widget #1'
+              onRemoveItem={onRemoveItem}
+              component={LinesChart} />
           </div>
 
-          <Card key="1" data-grid={{ w: 2, h: 8, x: 0, y: 0, minW: 2, minH: 8 }} className='bg-info'>
-            <CardHeader>
-              <CardTitle>Widget #1</CardTitle>
-            </CardHeader>
-            <CardBody>
-              <CardImg
-                alt="Card image cap"
-                src="https://picsum.photos/318/180"
-                top
-                width="100%"
-                className="img-fluid"
-              />
-              <CardText>
-                Texto descripción de la tarjeta.
-              </CardText>
-              <Button variant='secondary' type='submit'>
-                Explore
-              </Button>
-            </CardBody>
-          </Card>
-          <Card key="2" data-grid={{ w: 2, h: 6, x: 2, y: 0, minW: 2, minH: 6 }} className='bg-info'>
-            <CardHeader>
-              <CardTitle>Widget #2</CardTitle>
-            </CardHeader>
-            <CardBody>
-              <CardText>
-                <p>
-                  Texto descripción de la tarjeta.
-                </p>
-                <p>
-                  Más texto.
-                </p>
-                <p>
-                  y más.
-                </p>
-              </CardText>
-              <Button variant='secondary' type='submit'>
-                Explore
-              </Button>
-            </CardBody>
-          </Card>
-          <Card key="3" data-grid={{ w: 2, h: 4, x: 4, y: 1, minW: 2, minH: 4 }} className='bg-info'>
-            <CardHeader>
-              <CardTitle>Widget #3</CardTitle>
-            </CardHeader>
-            <CardBody>
-              <CardText>
-                Texto descripción de la tarjeta.
-              </CardText>
-              <Button variant='secondary' type='submit'>
-                Explore
-              </Button>
-            </CardBody>
-          </Card>
+          <div
+            key='2'
+            className="widget"
+            data-grid={{ w: 3, h: 8, x: 3, y: 0, minW: 2, minH: 6 }}
+          >
+            <Widget
+              id='2'
+              title='Widget #2'
+              onRemoveItem={onRemoveItem}
+              component={PiesChart} />
+          </div>
+
+          <div
+            key='3'
+            className="widget"
+            /* data-grid={{
+              w: { lg: 6, md: 5, sm: 3, xs: 4, xxs: 2 }, */
+              /* h: { lg: 4, xxs: 3 }, */
+              /* x: { lg: 6, md: 5, sm: 3, xs: 4, xxs: 2 },
+              y: { lg: 4, xxs: 3 },
+              minW: { lg: 6, md: 5, sm: 3, xs: 4, xxs: 2 },
+              minH: { lg: 4, xxs: 3 }, */
+           /*  }} */
+            data-grid={{ w: 3, h: 8, x: 0, y: 1, minW: 3, minH: 8 }}
+          >
+            <Widget
+              id='3'
+              title='Widget #3'
+              onRemoveItem={onRemoveItem}
+              component={ComposedsChart} />
+          </div>
+
+          <div
+            key='4'
+            className="widget"
+            data-grid={{ w: 3, h: 8, x: 3, y: 1, minW: 3, minH: 8 }}
+          >
+            <Widget
+              id='4'
+              title='Widget #4'
+              onRemoveItem={onRemoveItem}
+              component={BarsChart} />
+          </div>
+
         </ResponsiveReactGridLayout>
       </div>
     );

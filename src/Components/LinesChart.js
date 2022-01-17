@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  BarChart,
-  Bar,
+  LineChart,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -10,6 +10,7 @@ import {
   ResponsiveContainer
 } from "recharts";
 
+/* DATOS DE EJEMPLO */
 const data = [
   {
     name: "Page A",
@@ -54,14 +55,15 @@ const data = [
     amt: 2100
   }
 ];
+/* */ 
 
-export default function Chart() {
+export default function LinesChart() {
   return (
     <ResponsiveContainer width="99%" height="99%">
-      <BarChart
+      <LineChart
         data={data}
         margin={{
-          top: 20,
+          top: 5,
           right: 30,
           left: 20,
           bottom: 5
@@ -72,10 +74,14 @@ export default function Chart() {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="pv" stackId="a" fill="#ADC5A2" />
-        <Bar dataKey="amt" stackId="a" fill="#888CB6" />
-        <Bar dataKey="uv" fill="#AB9976" />
-      </BarChart>
+        <Line
+          type="monotone"
+          dataKey="pv"
+          stroke="#8884d8"
+          activeDot={{ r: 8 }}
+        />
+        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+      </LineChart>
     </ResponsiveContainer>
   );
 }
