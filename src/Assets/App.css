@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -22,6 +24,7 @@ ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
+  font-family: 'Roboto', sans-serif;
 }
 
 ol,
@@ -32,4 +35,147 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/*VAR*/
+:root {
+  --red-bg: #e06666;
+}
+/*SIDE BAR*/
+.header {
+  height: 100vh;
+}
+.pro-sidebar > .pro-sidebar-inner {
+  background: var(--red-bg) !important;
+  height: 100%;
+  border-radius: 5px;
+  margin: 4px;
+}
+
+.pro-menu-item:hover {
+  background-color: rgb(255, 255, 255);
+  color: var(--red-bg);
+}
+
+.pro-inner-item {
+  color: #fff;
+  font-size: 24px;
+}
+
+.pro-item-content:hover {
+  background-color: #fff;
+  color: var(--red-bg);
+}
+
+.pro-icon:hover {
+  background-color: #fff;
+  color: var(--red-bg);
+}
+.menu-button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  box-shadow: 0px 0px 1px rgb(50, 50, 50);
+  display: flex;
+  align-items: center;
+}
+
+.menu-button svg {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  margin: 0px 25px;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  margin: 0px 25px;
+  cursor: pointer;
+}
+
+.css-i4bv87-MuiSvgIcon-root:hover {
+  background-color: #fff;
+  color: var(--red-bg);
+}
+
+.logotext {
+  padding: 20px 30px;
+  font-size: 30px;
+  color: #fff;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  justify-content: space-evenly;
+  width: 80%;
+  padding: 10px;
+}
+
+.user img {
+  width: 70px;
+  height: auto;
+  border-radius: 100px;
+}
+
+.pro-sidebar-footer {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (min-width: 624px) {
+  .menu-button {
+    display: none;
+  }
+}
+
+/*FOOTER COMPONENT*/
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0px;
+  background-color: var(--red-bg);
+  margin-top: 15px;
+}
+
+footer h6 {
+  color: #ffff;
+  font-size: 1.4em;
+}
+
+/*WIDGET COMPONENT*/
+
+.card.widget-card{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: darkgrey;
+}
+
+.card-header.widget-header{
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.card-title.widget-title{
+  font-size: 25px;
+}
+
+.card-body.widget-body{
+  padding: 0.5rem;
+  flex-grow: 1;
+}
+
+.spacer{
+  flex-grow: 1;
 }

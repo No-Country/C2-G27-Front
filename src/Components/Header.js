@@ -1,5 +1,10 @@
-import React from "react";
+import React from 'react';
+import Navigation from './Navigation';
 
 export default function Header() {
-  return <div />;
+  return (
+    <div>
+      <Navigation />
+    </div>
+  );
 }
