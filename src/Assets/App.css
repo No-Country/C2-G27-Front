@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -38,11 +36,10 @@ img {
   height: auto;
 }
 
-
 /*VAR*/
 
 :root {
-  --bg-color: #0D1621;
+  --bg-color: #0d1621;
   --color-text: #0d6efd;
 }
 
@@ -120,7 +117,7 @@ header {
   color: #fff;
   border: none;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .hero-btn:hover {
@@ -151,7 +148,6 @@ header {
   align-items: center;
   height: 100%;
   width: 100%;
-
 }
 
 .form {
@@ -164,7 +160,7 @@ header {
   flex-direction: column;
   justify-content: space-around;
   z-index: 1;
-  background: #fff
+  background: #fff;
 }
 
 .btn-form {
@@ -175,7 +171,6 @@ header {
   border-bottom: 1px solid #bbbb;
   padding: 15px 0px;
 }
-
 
 .circle-rigth {
   width: 200px;
@@ -240,12 +235,12 @@ footer {
 }
 
 @media only screen and (max-width: 624px) {
-
   .form {
     width: 90%;
   }
 
-  .circle-rigth, .circle-left {
+  .circle-rigth,
+  .circle-left {
     display: none;
   }
 
@@ -257,5 +252,4 @@ footer {
   .hero-btn {
     width: 80%;
   }
-
 }

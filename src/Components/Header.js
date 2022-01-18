@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { Button } from 'reactstrap';
 import Animation from './AnimationData/Animation';
@@ -30,4 +31,15 @@ export default function Header() {
 
     </div>
   </header>;
+=======
+import React from 'react';
+import Navigation from './Navigation';
+
+export default function Header() {
+  return (
+    <div>
+      <Navigation />
+    </div>
+  );
+>>>>>>> development
 }
