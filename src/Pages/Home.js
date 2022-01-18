@@ -1,4 +1,13 @@
 import React from 'react';
+<<<<<<< HEAD
+import  Landing  from '../Components/Landing';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+export default function Home() {
+  return <div>
+    <Landing/>
+    </div>;
+=======
 import { Button, Col, Container, Row } from 'reactstrap';
 import Footer from '../Components/Fooder';
 import Navigation from '../Components/Navigation';
@@ -37,4 +46,5 @@ export default function Home() {
       </Container>
     </div>
   );
+>>>>>>> development
 }
