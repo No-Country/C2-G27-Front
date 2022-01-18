@@ -1,20 +1,14 @@
-import React, { lazy, Suspense } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import Home from '../Pages/Home';
+import React, { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-const Landing = lazy(() => import('../Pages/Landing'));
+const Home = lazy(() => import('../Pages/Home'));
 
 export default function Router() {
-  const location = useLocation();
+  return (<div>
+    <Routes>
 
-  return (
-    <div>
-      <Suspense fallback='Loading...'>
-        <Routes location={location}>
-          <Route path='/' exact element={<Home />} />
-          <Route path='/landing' exact element={<Landing />} />
-        </Routes>
-      </Suspense>
-    </div>
+      <Route path='/' element={<Home />} />
+    </Routes>
+  </div>
   );
 }

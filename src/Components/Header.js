@@ -1,10 +1,5 @@
-import React from 'react';
-import Navigation from './Navigation';
+import React from "react";
 
 export default function Header() {
-  return (
-    <div>
-      <Navigation />
-    </div>
-  );
+  return <div />;
 }
