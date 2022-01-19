@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import Footer from '../Components/Fooder';
-import WidgetBoard from '../Components/WidgedBoard';
+import WidgetsBoard from '../Components/WidgetsBoard';
 import SearchBar from '../Components/SearchBar';
 import UserCard from '../Components/UserCard';
 
@@ -21,7 +21,7 @@ export default function Home() {
               </Col>
             </Row>
             <Row>
-              <WidgetBoard />
+              <WidgetsBoard />
             </Row>
           </Col>
         </Row>
