@@ -4,10 +4,12 @@ import Footer from '../Components/Fooder';
 import WidgetBoard from '../Components/WidgedBoard';
 import SearchBar from '../Components/SearchBar';
 import UserCard from '../Components/UserCard';
+import NavBarResponsive from '../Components/NavBarResponsive';
 
 export default function Home() {
   return (
     <div>
+      <NavBarResponsive/>
       <Container>
         <Row >
 
