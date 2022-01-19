@@ -4,7 +4,6 @@ import {
   Menu,
   MenuItem,
   SidebarHeader,
-  SidebarFooter,
   SidebarContent,
 } from 'react-pro-sidebar';
 import HomeIcon from '@mui/icons-material/Home';
@@ -53,23 +52,7 @@ export default function Navigation() {
             <Menu />
           </Menu>
         </SidebarContent>
-        <SidebarFooter>
-          {open ? (
-            ' '
-          ) : (
-            <div className='user'>
-              <img
-                alt='user'
-                src='https://pbs.twimg.com/profile_images/606196213369720832/lSvWN_q-_400x400.jpg'
-              />
 
-              <div className='user-info'>
-                <h3>Martin Paz</h3>
-                <h6>Admin user</h6>
-              </div>
-            </div>
-          )}
-        </SidebarFooter>
       </ProSidebar>
     </div>
   );
