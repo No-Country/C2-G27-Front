@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import userReducer from './Features/user';
@@ -16,9 +15,7 @@ const store = configureStore({
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
-        <App />
-      </HashRouter>
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

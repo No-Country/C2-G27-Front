@@ -1,20 +1,20 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Home from '../Pages/Home';
-
-const Landing = lazy(() => import('../Pages/Landing'));
+import AdminCP from '../Pages/AdminCP';
+import Landing from '../Pages/Landing';
+import Navigation from '../Components/Navigation';
 
 export default function Router() {
-  const location = useNavigate();
-
+  const navigate = useNavigate();
   return (
-    <div>
-      <Suspense fallback='Loading...'>
-        <Routes location={location}>
-          <Route path='/' exact element={<Home />} />
-          <Route path='/landing' exact element={<Landing />} />
-        </Routes>
-      </Suspense>
-    </div>
+    <Suspense fallback='Loading...'>
+      {navigate === 'landing' ? null : <Navigation />}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='landing' element={<Landing />} />
+        <Route path='admin' element={<AdminCP />} />
+      </Routes>
+    </Suspense>
   );
 }

@@ -1,22 +1,17 @@
 import '../Assets/App.css';
-import { useNavigate } from "react-router-dom";
-import Navigation from "../Components/Navigation"
+import { BrowserRouter } from 'react-router-dom';
 import Router from './Router';
 
 function App() {
-
-  const navigate = useNavigate();
-
   return (
     <div className='App'>
-      {navigate === "/landing" ? null : <Navigation />}
-      <div className="Routing">
-        <Router />
+      <div className='Routing'>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
       </div>
-
     </div>
   );
 }
-
 
 export default App;
