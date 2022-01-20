@@ -1,11 +1,5 @@
-import React, { useState } from 'react';
-import {
-  ProSidebar,
-  Menu,
-  MenuItem,
-  SidebarHeader,
-  SidebarContent,
-} from 'react-pro-sidebar';
+import React from 'react';
+import { Nav, NavLink, NavItem} from 'reactstrap';
 import HomeIcon from '@mui/icons-material/Home';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
@@ -13,47 +7,62 @@ import FactCheckIcon from '@mui/icons-material/FactCheck';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SettingsIcon from '@mui/icons-material/Settings';
-import MenuIcon from '@mui/icons-material/Menu';
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
-import 'react-pro-sidebar/dist/css/styles.css';
+
 
 export default function Navigation() {
-  const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
 
-  return (
-    <div className='header'>
-      <ProSidebar collapsed={open}>
-        <SidebarHeader>
-          <div className='logotext'>
-            <p>{open ? ' ' : 'Dashboard'}</p>
-          </div>
-          <div className='menu-button'>
-            {!open ? (
-              <MenuOpenIcon onClick={handleClick} />
-            ) : (
-              <MenuIcon onClick={handleClick} />
-            )}
-          </div>
-        </SidebarHeader>
-        <SidebarContent>
-          <Menu>
-            <MenuItem icon={<HomeIcon />}>Home</MenuItem>
-            <MenuItem icon={<FactCheckIcon />}>Summary</MenuItem>
-            <MenuItem icon={<MonetizationOnIcon />}>Assets</MenuItem>
-            <MenuItem icon={<AssessmentIcon />}>Metric</MenuItem>
-            <MenuItem icon={<AccountCircleIcon />}>Profile</MenuItem>
-            <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>
-            <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
-            <Menu />
-          </Menu>
-        </SidebarContent>
+  return (<div>
 
-      </ProSidebar>
+    
+
+    <div className='sidebar'>
+      <p>
+        CriptoTech
+      </p>
+      <hr />
+      <Nav vertical>
+        <NavItem>
+          <NavLink href="#">
+            <HomeIcon />  Home
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">
+            <FactCheckIcon /> Summary
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">
+            <MonetizationOnIcon /> Assets
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#" >
+            <AssessmentIcon /> Metric
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#" >
+            <AccountCircleIcon /> Profile
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#" >
+            <SettingsIcon /> Settings
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#" >
+            <LogoutIcon /> Log Out
+          </NavLink>
+        </NavItem>
+      </Nav>
+
     </div>
+
+  </div>
+
   );
 }
