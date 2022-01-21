@@ -68,7 +68,15 @@ const COLORS02 = ['#B097ED', '#0B85EE', '#FF9728', '#FF6809'];
 export default function PiesChart() {
   return (
     <ResponsiveContainer width="99%" height="99%">
-      <PieChart width={730} height={250}>
+      <PieChart
+      width={500}
+      height={400}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5
+      }}>
         <Pie data={data02} nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} dataKey="value" >
           {
             data02.map((entry, index) => (

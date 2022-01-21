@@ -62,6 +62,8 @@ export default function LinesChart() {
     <ResponsiveContainer width="99%" height="99%">
       <LineChart
         data={data}
+        width={500}
+        height={400}
         margin={{
           top: 5,
           right: 30,

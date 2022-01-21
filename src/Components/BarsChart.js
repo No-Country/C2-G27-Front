@@ -63,8 +63,10 @@ export default function BarsChart() {
     <ResponsiveContainer width="99%" height="99%">
       <BarChart
         data={data}
+        width={500}
+        height={400}
         margin={{
-          top: 20,
+          top: 5,
           right: 30,
           left: 20,
           bottom: 5
