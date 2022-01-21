@@ -38,7 +38,8 @@ function saveToLS(key, value) {
 }
 
 const onRemoveItem = (itemId) => {
-console.log(itemId);
+  // eslint-disable-next-line no-console
+  console.log(itemId);
 };
 export default class WidgetsBoard extends React.PureComponent {
   static defaultProps() {
