@@ -11,6 +11,7 @@ export default function AdminCP() {
             <Button>Company Assets</Button>
             <Button>Manage Users</Button>
             <Button>Search User</Button>
+            <Button>Create User</Button>
           </Col>
         </Row>
       </Container>

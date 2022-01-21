@@ -1,16 +1,16 @@
 import React, { Suspense } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from '../Pages/Home';
 import AdminCP from '../Pages/AdminCP';
 import Landing from '../Pages/Landing';
 import Navigation from '../Components/Navigation';
 
 export default function Router() {
-  const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Suspense fallback='Loading...'>
-      {navigate === 'landing' ? null : <Navigation />}
-      <Routes>
+      {location.pathname === '/landing' ? null : <Navigation />}
+      <Routes className='Routing'>
         <Route path='/' element={<Home />} />
         <Route path='landing' element={<Landing />} />
         <Route path='admin' element={<AdminCP />} />
