@@ -1,7 +1,9 @@
-# Dashboard Fintech
+# Cryptotech
 ---
 
-## Objetivo
+## 
+
+
 Crear un dashboard que consuma datos y tenga en la misma base de datos stored procedures con las diferentes consultas.
 La aplicación debe consultar directamente al store procedure de la base de datos y mostrar la visualización
 Los datos pueden ser tomados de alguna API libre que ustedes pueden elegir, siempre y cuando tenga relación con la temática solicitada.
@@ -18,7 +20,8 @@ Los datos pueden ser tomados de alguna API libre que ustedes pueden elegir, siem
 - Almacenamiento de datos
 - Crear las consultas en stored procedures. Poder pasarle algún parámetro.
 
-## Tecnologías Requeridas
+## Technologies 
 - Front-End: React JS
+
 - Back-End:  Node - Express
 - DB: SQL/ Relacional - Stored Procedures

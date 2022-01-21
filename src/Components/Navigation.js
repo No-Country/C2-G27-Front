@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, NavLink, NavItem } from 'reactstrap';
+import { LinkContainer } from 'react-router-bootstrap'
 import HomeIcon from '@mui/icons-material/Home';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
@@ -12,23 +13,29 @@ export default function Navigation() {
   return (
     <div>
       <div className='sidebar'>
-        <p>CriptoTech</p>
+        <p>CryptoTech</p>
         <hr />
         <Nav vertical>
           <NavItem>
-            <NavLink href='/'>
-              <HomeIcon /> Home
-            </NavLink>
+            <LinkContainer to="/">
+              <NavLink>
+                <HomeIcon /> Home
+              </NavLink>
+            </LinkContainer>
           </NavItem>
           <NavItem>
-            <NavLink href='/admin'>
-              <FactCheckIcon /> Admin Panel
-            </NavLink>
+            <LinkContainer to='/admin'>
+              <NavLink>
+                <FactCheckIcon /> Admin Panel
+              </NavLink>
+            </LinkContainer>
           </NavItem>
           <NavItem>
-            <NavLink href='#'>
-              <MonetizationOnIcon /> Assets
-            </NavLink>
+            <LinkContainer to='/profile'>
+              <NavLink>
+                <MonetizationOnIcon /> Assets
+              </NavLink>
+            </LinkContainer>
           </NavItem>
           <NavItem>
             <NavLink href='#'>
