@@ -4,8 +4,6 @@ export default function Fooder() {
   return (
     <footer>
       <div className='footer-wave'>
-        <h3>Web powered by C2-G27-T</h3>
-
         <svg
           svg
           viewBox='0 0 500 150'
@@ -17,6 +15,7 @@ export default function Fooder() {
             className='wave-svg'
           />
         </svg>
+        <p>Web powered by C2-G27-T</p>
       </div>
     </footer>
   );
