@@ -13,7 +13,7 @@ export default function Home() {
 
   console.log(location);
   return (
-    <div>
+    <div style={{width:'100%', minHeight:'100vh'}}>
       <NavBarResponsive />
       <Container>
         <Row>
@@ -22,6 +22,7 @@ export default function Home() {
               <Col>
                 <SearchBar />
               </Col>
+              <Col/>
               <Col>
                 <UserCard />
               </Col>

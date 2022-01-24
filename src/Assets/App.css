@@ -49,7 +49,7 @@ img {
 .App {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
 }
 
 /*ROUTING*/
@@ -63,6 +63,7 @@ img {
   align-items: flex-start;
   font-size: 2rem;
   color: var(--red-bg);
+  float: right;
 }
 
 .userCard h5 {
@@ -235,13 +236,13 @@ footer {
 }
 
 .footer-wave {
-  height: 300px;
+  height: 100px;
   overflow: hidden;
 }
 
-.footer-wave h3 {
-  transform: translate(0%, 700%);
-}
+.footer-wave p {
+  transform: translate(0%, -100%);
+} 
 
 .wave {
   height: 100%;
@@ -251,7 +252,6 @@ footer {
 .wave-svg {
   stroke: none;
   fill: var(--bg-color);
-  transform: translate(0px, 8%);
 }
 
 /*MEDIA OF LANDING*/
@@ -310,11 +310,12 @@ footer {
 /*==== SIDEBAR STYLES ======  */
 
 .sidebar {
-  width: 300px;
   padding: 10px;
-  background: var(--color-sidebar);
+  background: var(--bg-color);
   color: #fff;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 200px;
 }
 
 .sidebar p {
@@ -375,6 +376,7 @@ footer {
   font-size: 24px;
   padding: 10px 20px;
 }
+
 
 /*WIDGET COMPONENT*/
 
