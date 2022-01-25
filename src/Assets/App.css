@@ -81,7 +81,12 @@ img {
   flex-direction: column;
 }
 
-
+.userHero{
+  padding: 30px;
+  margin-bottom: 600px;
+  width: 100%;
+  
+}
 
 /*HEADER SECTION*/
 
@@ -172,7 +177,23 @@ header {
   align-items: center;
   justify-content: center;
 }
+/* ADMIN PANEL SECTION*/
 
+.banner-panel{
+  background-image: url(https://i.ibb.co/PcRRqNt/stacked-waves-haikei.png);
+  height: 200px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+}
+
+.admin-btn img{
+width: 250px;
+height: 180px;
+object-fit: cover;
+}
 /*FORM SECTION*/
 
 .form-section {
@@ -234,7 +255,15 @@ footer {
   color: #fff;
   text-align: center;
 }
-
+.footer-dash{
+  background: var(--bg-color);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0px;
+}
+.footer-dash p{
+  margin: 0;
+}
 .footer-wave {
   height: 100px;
   overflow: hidden;
