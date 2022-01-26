@@ -2,7 +2,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import { useLocation } from 'react-router-dom';
-import Footer from '../Components/Fooder';
+import Footer from '../Components/FooterDash';
 import WidgetsBoard from '../Components/WidgetsBoard';
 import SearchBar from '../Components/SearchBar';
 import UserCard from '../Components/UserCard';
