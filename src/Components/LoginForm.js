@@ -33,11 +33,11 @@ function LoginForm() {
   }, [dispatch]);
 
   const initialValues = {
-    username: '',
+    email: '',
     password: '',
   };
   const validationSchema = Yup.object({
-    username: Yup.string().required('Required'),
+    email: Yup.string().required('Required'),
     password: Yup.string().required('Required'),
   });
 
@@ -48,13 +48,13 @@ function LoginForm() {
   });
 
   const handleSubmit = (formValue) => {
-    const { username, password } = formValue;
+    const { email, password } = formValue;
     setLoading(true);
 
-    dispatch(login({ username, password }))
+    dispatch(login({ email, password }))
       .unwrap()
       .then(() => {
-        props.history.push('/profile');
+        props.history.push('/');
         window.location.reload();
       })
       .catch(() => {
