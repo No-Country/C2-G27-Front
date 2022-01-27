@@ -10,6 +10,40 @@ import NavBarResponsive from '../Components/NavBarResponsive';
 
 export default function Home() {
   const location = useLocation();
+  const homeDefaults = {
+    
+      lg:[
+        { i: "1", w: 5, h: 8, x: 0, y: 0, minW: 2, minH: 6 },
+        { i: "2", w: 3, h: 8, x: 5, y: 0, minW: 2, minH: 6 },
+        { i: "3", w: 4, h: 8, x: 8, y: 1, minW: 2, minH: 6 },
+        { i: "4", w: 5, h: 8, x: 3, y: 1, minW: 2, minH: 6 },
+      ],
+      md:[
+        { i: "1", w: 5, h: 8, x: 0, y: 0, minW: 2, minH: 6 },
+        { i: "2", w: 3, h: 8, x: 5, y: 0, minW: 2, minH: 6 },
+        { i: "3", w: 4, h: 8, x: 8, y: 1, minW: 2, minH: 6 },
+        { i: "4", w: 5, h: 8, x: 3, y: 1, minW: 2, minH: 6 },
+      ],
+      sm:[
+        { i: "1", w: 5, h: 8, x: 0, y: 0, minW: 2, minH: 6 },
+        { i: "2", w: 3, h: 8, x: 5, y: 0, minW: 2, minH: 6 },
+        { i: "3", w: 4, h: 8, x: 8, y: 1, minW: 2, minH: 6 },
+        { i: "4", w: 5, h: 8, x: 3, y: 1, minW: 2, minH: 6 },
+      ],
+      xs:[
+        { i: "1", w: 5, h: 8, x: 0, y: 0, minW: 2, minH: 6 },
+        { i: "2", w: 3, h: 8, x: 5, y: 0, minW: 2, minH: 6 },
+        { i: "3", w: 4, h: 8, x: 8, y: 1, minW: 2, minH: 6 },
+        { i: "4", w: 5, h: 8, x: 3, y: 1, minW: 2, minH: 6 },
+      ],
+      xxs:[
+        { i: "1", w: 5, h: 8, x: 0, y: 0, minW: 2, minH: 6 },
+        { i: "2", w: 3, h: 8, x: 5, y: 0, minW: 2, minH: 6 },
+        { i: "3", w: 4, h: 8, x: 8, y: 1, minW: 2, minH: 6 },
+        { i: "4", w: 5, h: 8, x: 3, y: 1, minW: 2, minH: 6 },
+      ]
+    
+  };
 
   console.log(location);
   return (
@@ -28,7 +62,7 @@ export default function Home() {
               </Col>
             </Row>
             <Row>
-              <WidgetsBoard />
+              <WidgetsBoard defaults={homeDefaults}/>
             </Row>
           </Col>
         </Row>
