@@ -1,7 +1,6 @@
 import axios from 'axios';
 import{ REGISTRATION, LOGIN} from "./Urls"
 
-
 const API_URL = process.env.REACT_APP_BASE_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
 

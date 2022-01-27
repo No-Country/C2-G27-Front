@@ -1,9 +1,9 @@
 /* eslint-disable no-console, no-use-before-define */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import {
   Form,
   Button,
@@ -17,37 +17,53 @@ import {
   FormText,
 } from 'reactstrap';
 
+import { login } from '../Features/auth';
+import { message } from '../Features/message';
+
 function LoginForm() {
-  const history = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const { message } = useSelector((state) => state.message);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearMessage());
+  }, [dispatch]);
+
   const initialValues = {
     email: '',
     password: '',
   };
   const validationSchema = Yup.object({
-    email: Yup.string().email('Invalid Email Format').required('Required'),
+    email: Yup.string().required('Required'),
     password: Yup.string().required('Required'),
   });
+
   const formik = useFormik({
     initialValues,
     handleSubmit,
     validationSchema,
   });
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const loginData = {
-      email: formik.values.email,
-      password: formik.values.password,
-    };
-    await axios
-      .post('BACKENDROUTE', loginData)
-      .then((response) => {
-        window.localStorage.setItem('token', response.data.token);
-        history.push('/');
-        console.log(window.localStorage.getItem('token'));
+
+  const handleSubmit = (formValue) => {
+    const { email, password } = formValue;
+    setLoading(true);
+
+    dispatch(login({ email, password }))
+      .unwrap()
+      .then(() => {
+        props.history.push('/');
+        window.location.reload();
       })
-      .catch((error) => {
-        console.log('error', error);
+      .catch(() => {
+        setLoading(false);
       });
+  };
+
+  if (isLoggedIn) {
+    return <Redirect to='/' />;
   }
 
   return (
@@ -94,9 +110,9 @@ function LoginForm() {
             </FormGroup>
             <div className='d-flex flex-row-reverse'>
               <Button variant='primary' type='submit'>
-              Submit
+                Submit
               </Button>
-            </div>      
+            </div>
           </Form>
         </CardBody>
       </Card>
