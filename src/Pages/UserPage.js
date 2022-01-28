@@ -1,24 +1,44 @@
-import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import UserHero from "../Components/UserHero"
-import Footer from '../Components/FooterDash';
+/* eslint-disable react/function-component-definition, react/no-array-index-key */
+import React from "react";
+import { Navigate } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { Container } from "reactstrap";
 
-function UserPage() {
+const UserPage = () => {
+  const { user: currentUser } = useSelector((state) => state.auth);
 
-  return <div style={{ width: '100%', height: "100%" }}>
-    <div className='banner-panel'>
-      <h2>Welcome to Assets</h2>
-    </div>
+  if (!currentUser) {
+    return <Navigate to="/login" />;
+  }
 
+  return (
     <Container>
-      <Row>
-        <Col>
-          <UserHero />
-        </Col>
-      </Row>
+        <h3>
+          <strong>{currentUser.username}</strong> Wallet!
+        </h3>
+
+      <p>
+        <strong>Token:</strong> {currentUser.token.substring(0, 20)} ...{" "}
+        {currentUser.token.substr(currentUser.token.length - 20)}
+      </p>
+      <p>
+        <strong>username:</strong> {currentUser.user.username}
+      </p>
+      <p>
+        <strong>Email:</strong> {currentUser.email}
+      </p>
+      <strong>Authorities:</strong>
+      <ul>
+        {currentUser.roles &&
+          currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
+      </ul>
+
     </Container>
-    <Footer />
-  </div>
-}
+
+
+
+  );
+};
 
 export default UserPage;
+
