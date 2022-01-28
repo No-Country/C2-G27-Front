@@ -1,29 +1,41 @@
 /* eslint-disable arrow-body-style, no-console */
 import axios from 'axios';
-import { LOGIN, REGISTRATION } from './Urls';
+import { REGISTRATION, LOGIN } from './Urls';
 
 const API_URL = process.env.REACT_APP_BASE_URL;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
-const register = (username, email, password) => {
+const header = {
+  api: API_KEY,
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+};
+
+const register = (username, email, password, role) => {
   return axios.post(`${API_URL + REGISTRATION}`, {
-    username,
-    email,
-    password,
+    username: username,
+    email: email,
+    password: password,
+    role: role,
+    peopleId: user.data.peopleId,
   });
 };
 
 const login = (username, password) => {
   console.log('loggin');
   return axios
-    .post(`${API_URL + LOGIN}`, {
-      username,
-      password,
-    })
+    .post(
+      `${API_URL + LOGIN}`,
+      {
+        username: username,
+        password: password,
+      },
+      header
+    )
     .then((response) => {
-      if (response.data.accessToken) {
+      if (response.data.token) {
         localStorage.setItem('user', JSON.stringify(response.data));
       }
-
       return response.data;
     });
 };
