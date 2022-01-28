@@ -15,9 +15,15 @@ import ComposedsChart from './ComposedsChart';
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 export default function WidgetsBoard (props) { 
   const {defaults} = props;
-  const [layouts, setLayouts] = useState(defaults);
+  const [layouts, setLayouts] = useState(defaults.layouts);
+  const widgets = {
+    "BarsChart":BarsChart,
+    "PiesChart":PiesChart,
+    "LinesChart":LinesChart,
+    "ComposedsChart":ComposedsChart
+  } ;
   
-    return (
+  return (
       <div>
         <Button onClick={()=>setLayouts(defaults.layouts)}>Reset Layout</Button>
         <ResponsiveReactGridLayout
@@ -30,48 +36,44 @@ export default function WidgetsBoard (props) {
           }
         >
           <div
-            key='1'
+            key={defaults.widgets.key[0]}
             className="widget"            
-          >
-            <Widget
-              id='1'
-              title='Widget #1'
-             /*  onRemoveItem={onRemoveItem} */
-              component={LinesChart} />
-          </div>
-
-          <div
-            key='2'
+            >
+              <Widget
+                id={defaults.widgets.id[0]}
+                title={defaults.widgets.title[0]}          
+                component={widgets[defaults.widgets.component[0]]} />
+            </div>
+          
+            <div
+            key={defaults.widgets.key[1]}
             className="widget"            
-          >
-            <Widget
-              id='2'
-              title='Widget #2'
-             /*  onRemoveItem={onRemoveItem} */
-              component={PiesChart} />
-          </div>
-
-          <div
-            key='3'
-            className="widget"          
-          >
-            <Widget
-              id='3'
-              title='Widget #3'
-              /* onRemoveItem={onRemoveItem} */
-              component={ComposedsChart} />
-          </div>
-
-          <div
-            key='4'
+            >
+              <Widget
+                id={defaults.widgets.id[1]}
+                title={defaults.widgets.title[1]}          
+                component={widgets[defaults.widgets.component[1]]} />
+            </div>
+            
+            <div
+            key={defaults.widgets.key[2]}
             className="widget"            
-          >
-            <Widget
-              id='4'
-              title='Widget #4'
-             /*  onRemoveItem={onRemoveItem} */
-              component={BarsChart} />
-          </div>
+            >
+              <Widget
+                id={defaults.widgets.id[2]}
+                title={defaults.widgets.title[2]}          
+                component={widgets[defaults.widgets.component[2]]} />
+            </div>
+            
+            <div
+            key={defaults.widgets.key[3]}
+            className="widget"            
+            >
+              <Widget
+                id={defaults.widgets.id[3]}
+                title={defaults.widgets.title[3]}          
+                component={widgets[defaults.widgets.component[3]]} />
+            </div>
 
         </ResponsiveReactGridLayout>
       </div>
