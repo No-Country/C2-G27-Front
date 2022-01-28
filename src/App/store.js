@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from '../Features/auth';
-import messageReducer from './Features/message';
+import messageReducer from '../Features/message';
 
 const reducer = {
   auth: authReducer,
@@ -8,7 +8,7 @@ const reducer = {
 };
 
 const store = configureStore({
-  reducer: reducer,
+  reducer,
   devTools: true,
 });
 

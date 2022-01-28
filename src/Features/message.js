@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {};
