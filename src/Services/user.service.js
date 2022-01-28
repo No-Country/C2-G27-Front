@@ -1,5 +1,6 @@
 import axios from 'axios';
 import authHeader from './auth-header';
+import { WALLET } from './Urls';
 
 const API_URL = process.env.API_URL;
 
@@ -8,7 +9,7 @@ const getPublicContent = () => {
 };
 
 const getUserPanel = () => {
-  return axios.get(API_URL + 'user', { headers: authHeader() });
+  return axios.get(API_URL + WALLET, { headers: authHeader() });
 };
 
 const getAdminBoard = () => {
