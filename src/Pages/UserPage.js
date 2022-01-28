@@ -1,27 +1,28 @@
+/* eslint-disable react/function-component-definition, react/no-array-index-key */
 import React from "react";
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { Container } from "reactstrap";
 
 const UserPage = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
 
   if (!currentUser) {
-    return <Redirect to="/login" />;
+    return <Navigate to="/login" />;
   }
 
   return (
-    <div className="container">
-      <header className="jumbotron">
+    <Container>
         <h3>
-          <strong>{currentUser.username}</strong> Profile
+          <strong>{currentUser.username}</strong> Wallet!
         </h3>
-      </header>
+
       <p>
-        <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
-        {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
+        <strong>Token:</strong> {currentUser.token.substring(0, 20)} ...{" "}
+        {currentUser.token.substr(currentUser.token.length - 20)}
       </p>
       <p>
-        <strong>Id:</strong> {currentUser.id}
+        <strong>username:</strong> {currentUser.user.username}
       </p>
       <p>
         <strong>Email:</strong> {currentUser.email}
@@ -31,10 +32,13 @@ const UserPage = () => {
         {currentUser.roles &&
           currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
       </ul>
-    </div>
+
+    </Container>
+
+
+
   );
 };
 
 export default UserPage;
-
 
