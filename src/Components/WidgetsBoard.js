@@ -84,7 +84,7 @@ export default class WidgetsBoard extends React.PureComponent {
           <div
             key='1'
             className="widget"
-            data-grid={{ w: 3, h: 8, x: 0, y: 0, minW: 2, minH: 6 }}
+            data-grid={{ w: 5, h: 8, x: 0, y: 0, minW: 2, minH: 6 }}
           >
             <Widget
               id='1'
@@ -96,7 +96,7 @@ export default class WidgetsBoard extends React.PureComponent {
           <div
             key='2'
             className="widget"
-            data-grid={{ w: 3, h: 8, x: 3, y: 0, minW: 2, minH: 6 }}
+            data-grid={{ w: 3, h: 8, x: 5, y: 0, minW: 2, minH: 6 }}
           >
             <Widget
               id='2'
@@ -108,7 +108,7 @@ export default class WidgetsBoard extends React.PureComponent {
           <div
             key='3'
             className="widget"
-            data-grid={{ w: 3, h: 8, x: 0, y: 1, minW: 3, minH: 8 }}
+            data-grid={{ w: 4, h: 8, x: 8, y: 1, minW: 2, minH: 6 }}
           >
             <Widget
               id='3'
@@ -120,7 +120,7 @@ export default class WidgetsBoard extends React.PureComponent {
           <div
             key='4'
             className="widget"
-            data-grid={{ w: 3, h: 8, x: 3, y: 1, minW: 3, minH: 8 }}
+            data-grid={{ w: 5, h: 8, x: 3, y: 1, minW: 2, minH: 6 }}
           >
             <Widget
               id='4'

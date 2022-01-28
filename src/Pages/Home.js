@@ -2,7 +2,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import { useLocation } from 'react-router-dom';
-import Footer from '../Components/Fooder';
+import Footer from '../Components/FooterDash';
 import WidgetsBoard from '../Components/WidgetsBoard';
 import SearchBar from '../Components/SearchBar';
 import UserCard from '../Components/UserCard';
@@ -13,7 +13,7 @@ export default function Home() {
 
   console.log(location);
   return (
-    <div>
+    <div style={{width:'100%', minHeight:'100vh'}}>
       <NavBarResponsive />
       <Container>
         <Row>
@@ -22,6 +22,7 @@ export default function Home() {
               <Col>
                 <SearchBar />
               </Col>
+              <Col/>
               <Col>
                 <UserCard />
               </Col>

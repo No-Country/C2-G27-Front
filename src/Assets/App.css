@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -24,7 +22,6 @@ ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
-  font-family: 'Roboto', sans-serif;
 }
 
 ol,
@@ -49,7 +46,7 @@ img {
 .App {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
 }
 
 /*ROUTING*/
@@ -63,6 +60,7 @@ img {
   align-items: flex-start;
   font-size: 2rem;
   color: var(--red-bg);
+  float: right;
 }
 
 .userCard h5 {
@@ -80,7 +78,11 @@ img {
   flex-direction: column;
 }
 
-
+.userHero {
+  padding: 30px;
+  margin-bottom: 600px;
+  width: 100%;
+}
 
 /*HEADER SECTION*/
 
@@ -171,7 +173,23 @@ header {
   align-items: center;
   justify-content: center;
 }
+/* ADMIN PANEL SECTION*/
 
+.banner-panel {
+  background-image: url(https://i.ibb.co/PcRRqNt/stacked-waves-haikei.png);
+  height: 200px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+}
+
+.admin-btn img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+}
 /*FORM SECTION*/
 
 .form-section {
@@ -233,14 +251,22 @@ footer {
   color: #fff;
   text-align: center;
 }
-
+.footer-dash {
+  background: var(--bg-color);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0px;
+}
+.footer-dash p {
+  margin: 0;
+}
 .footer-wave {
-  height: 300px;
+  height: 100px;
   overflow: hidden;
 }
 
-.footer-wave h3 {
-  transform: translate(0%, 700%);
+.footer-wave p {
+  transform: translate(0%, -100%);
 }
 
 .wave {
@@ -251,7 +277,6 @@ footer {
 .wave-svg {
   stroke: none;
   fill: var(--bg-color);
-  transform: translate(0px, 8%);
 }
 
 /*MEDIA OF LANDING*/
@@ -306,15 +331,15 @@ footer {
   }
 }
 
-
 /*==== SIDEBAR STYLES ======  */
 
 .sidebar {
-  width: 300px;
   padding: 10px;
-  background: var(--color-sidebar);
+  background: var(--bg-color);
   color: #fff;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 200px;
 }
 
 .sidebar p {
@@ -332,16 +357,16 @@ footer {
   align-items: center;
   font-size: 20px;
   margin-bottom: 20px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
-.nav-item a:hover, .nav-item a:focus {
+.nav-item a:hover,
+.nav-item a:focus {
   background-color: #fff;
   color: var(--color-sidebar);
   width: 100%;
   border-radius: 3px;
 }
-
 
 .sidebar-offcanvas {
   padding: 10px;
@@ -378,7 +403,7 @@ footer {
 
 /*WIDGET COMPONENT*/
 
-.card.widget-card{
+.card.widget-card {
   width: 100%;
   height: 100%;
   display: flex;
@@ -386,27 +411,27 @@ footer {
   box-shadow: 3px 1px 8px 0px #ddd;
 }
 
-.card-header.widget-header{
+.card-header.widget-header {
   display: flex;
   align-items: center;
   padding: 0.5rem;
 }
 
-.card-title.widget-title{
+.card-title.widget-title {
   font-size: 12px;
   margin-bottom: 0;
 }
 
-.card-body.widget-body{
+.card-body.widget-body {
   padding: 0.5rem;
   flex-grow: 1;
 }
 
-.spacer{
+.spacer {
   flex-grow: 1;
 }
 
-.card-header .btn-close{
+.card-header .btn-close {
   width: 0.1em;
   height: 0.1em;
 }
