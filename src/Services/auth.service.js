@@ -1,4 +1,4 @@
-/* eslint-disable arrow-body-style, no-console */
+/* eslint-disable arrow-body-style, no-console, object-shorthand */
 import axios from 'axios';
 import { REGISTRATION, LOGIN } from './Urls';
 
@@ -6,10 +6,11 @@ const API_URL = process.env.REACT_APP_BASE_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const header = {
+  headers:{
   api: API_KEY,
   Accept: 'application/json',
   'Content-Type': 'application/json',
-};
+}};
 
 const register = (username, email, password, role) => {
   return axios.post(`${API_URL + REGISTRATION}`, {
@@ -17,7 +18,7 @@ const register = (username, email, password, role) => {
     email: email,
     password: password,
     role: role,
-    peopleId: user.data.peopleId,
+    peopleId: "#",
   });
 };
 
@@ -30,7 +31,7 @@ const login = (username, password) => {
         username: username,
         password: password,
       },
-      header
+      {...header}
     )
     .then((response) => {
       if (response.data.token) {

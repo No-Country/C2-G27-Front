@@ -34,7 +34,7 @@ function LoginForm() {
   const handleSubmit = (formValue) => {
     const { username, password } = formValue;
     setLoading(true);
-    console.log(clicked);
+    console.log("clicked");
     dispatch(login({ username, password }))
       .unwrap()
       .then(() => {
