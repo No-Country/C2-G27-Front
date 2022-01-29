@@ -3,7 +3,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   Form,
   Button,
@@ -93,8 +93,8 @@ function LoginForm() {
               </FormText>
             </FormGroup>
             <div className='d-flex flex-row-reverse'>
-              <Button variant='primary' type='submit'>
-              Submit
+              <Button color='primary' type='submit'>
+              <Link to="/"  style={{color:'#fff', textDecoration:'none'}}>   Submit</Link>  
               </Button>
             </div>      
           </Form>

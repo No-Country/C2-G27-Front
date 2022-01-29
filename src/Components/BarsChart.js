@@ -77,9 +77,9 @@ export default function BarsChart() {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="pv" stackId="a" fill="#ADC5A2" />
-        <Bar dataKey="amt" stackId="a" fill="#888CB6" />
-        <Bar dataKey="uv" fill="#AB9976" />
+        <Bar dataKey="pv" stackId="a" fill="red" />
+        <Bar dataKey="amt" stackId="a" fill="green" />
+        <Bar dataKey="uv" fill="red" />
       </BarChart>
     </ResponsiveContainer>
   );

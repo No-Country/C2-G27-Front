@@ -6,7 +6,7 @@ import LoginForm from '../Components/LoginForm';
 export default function Landing() {
   return (
     <div className='landing-container header min-vh-100 '>
-      <Container fluid className='p-5 '>
+      <Container fluid className='p-5 d-flex justify-content-center'>
         <Row>
           <Col md={6} xs={12}>
             <Container className='plt-3 pt-3 '>
@@ -20,7 +20,7 @@ export default function Landing() {
               </Link> */}
 
             </Container>
-              <Container className='pl-3 d-flex '>
+              <Container className='pl-3 d-flex  '>
               <LoginForm />
               </Container>
           </Col>

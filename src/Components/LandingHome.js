@@ -2,7 +2,8 @@ import React from 'react'
 import Fooder from './Fooder'
 import Header from './Header'
 
-export default function Landingr() {
+
+export default function LandingHome() {
     return (
         <div>
             <Header />

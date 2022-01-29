@@ -7,8 +7,13 @@ import WidgetsBoard from '../Components/WidgetsBoard';
 import SearchBar from '../Components/SearchBar';
 import UserCard from '../Components/UserCard';
 import NavBarResponsive from '../Components/NavBarResponsive';
+import CriptoItem from '../Components/CriptoItem';
+
 
 export default function Home() {
+
+
+  
   const location = useLocation();
 
   console.log(location);
@@ -28,6 +33,7 @@ export default function Home() {
               </Col>
             </Row>
             <Row>
+              <CriptoItem/>
               <WidgetsBoard />
             </Row>
           </Col>

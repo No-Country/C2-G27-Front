@@ -88,7 +88,7 @@ export default class WidgetsBoard extends React.PureComponent {
           >
             <Widget
               id='1'
-              title='Widget #1'
+              title='BITCOIN #BTC'
               onRemoveItem={onRemoveItem}
               component={LinesChart} />
           </div>
@@ -100,7 +100,7 @@ export default class WidgetsBoard extends React.PureComponent {
           >
             <Widget
               id='2'
-              title='Widget #2'
+              title='ETHEREUM #ETC'
               onRemoveItem={onRemoveItem}
               component={PiesChart} />
           </div>
@@ -112,7 +112,7 @@ export default class WidgetsBoard extends React.PureComponent {
           >
             <Widget
               id='3'
-              title='Widget #3'
+              title='DASH #DASH'
               onRemoveItem={onRemoveItem}
               component={ComposedsChart} />
           </div>
@@ -124,7 +124,18 @@ export default class WidgetsBoard extends React.PureComponent {
           >
             <Widget
               id='4'
-              title='Widget #4'
+              title='NEO #NEO'
+              onRemoveItem={onRemoveItem}
+              component={BarsChart} />
+          </div>
+          <div
+            key='5'
+            className="widget"
+            data-grid={{ w: 5, h: 8, x: 3, y: 1, minW: 2, minH: 6 }}
+          >
+            <Widget
+              id='5'
+              title='RIPPLE #XRP'
               onRemoveItem={onRemoveItem}
               component={BarsChart} />
           </div>

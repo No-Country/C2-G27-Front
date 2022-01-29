@@ -52,6 +52,18 @@ img {
   width: 100%;
 }
 
+/* LOGIN */
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+/*CRIPTO COLUMN*/
+.cripto-row{
+  display: flex;
+  flex-wrap: wrap;
+}
 /*ROUTING*/
 .Routing {
   width: 100%;
@@ -81,13 +93,28 @@ img {
   flex-direction: column;
 }
 
-.userHero{
+.userHero {
   padding: 30px;
-  margin-bottom: 600px;
   width: 100%;
-  
+  margin-bottom: 100px;
 }
 
+/*WIDGET*/
+.card-header.widget-header{
+  background-color: #0d1621;
+  color: #fff;
+  padding:20px !important; 
+}
+
+.card-title.widget-title{
+  font-size: 20px !important;
+}
+.card.widget-card{
+  transition: .5s;
+}
+.card.widget-card:hover{
+  transform: scale(1.010);
+}
 /*HEADER SECTION*/
 
 header {
@@ -177,9 +204,10 @@ header {
   align-items: center;
   justify-content: center;
 }
+
 /* ADMIN PANEL SECTION*/
 
-.banner-panel{
+.banner-panel {
   background-image: url(https://i.ibb.co/PcRRqNt/stacked-waves-haikei.png);
   height: 200px;
   color: #fff;
@@ -189,11 +217,12 @@ header {
   background-size: contain;
 }
 
-.admin-btn img{
-width: 250px;
-height: 180px;
-object-fit: cover;
+.admin-btn img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
 }
+
 /*FORM SECTION*/
 
 .form-section {
@@ -255,15 +284,18 @@ footer {
   color: #fff;
   text-align: center;
 }
-.footer-dash{
+
+.footer-dash {
   background: var(--bg-color);
   color: #fff;
   text-align: center;
   padding: 10px 0px;
 }
-.footer-dash p{
+
+.footer-dash p {
   margin: 0;
 }
+
 .footer-wave {
   height: 100px;
   overflow: hidden;
@@ -271,7 +303,7 @@ footer {
 
 .footer-wave p {
   transform: translate(0%, -100%);
-} 
+}
 
 .wave {
   height: 100%;
@@ -332,6 +364,11 @@ footer {
   .offcanvas {
     background-color: var(--color-sidebar) !important;
     width: 300px !important;
+  }
+
+
+  .cripto-row{
+    display: column;
   }
 }
 
@@ -409,7 +446,7 @@ footer {
 
 /*WIDGET COMPONENT*/
 
-.card.widget-card{
+.card.widget-card {
   width: 100%;
   height: 100%;
   display: flex;
@@ -417,27 +454,27 @@ footer {
   box-shadow: 3px 1px 8px 0px #ddd;
 }
 
-.card-header.widget-header{
+.card-header.widget-header {
   display: flex;
   align-items: center;
   padding: 0.5rem;
 }
 
-.card-title.widget-title{
+.card-title.widget-title {
   font-size: 12px;
   margin-bottom: 0;
 }
 
-.card-body.widget-body{
+.card-body.widget-body {
   padding: 0.5rem;
   flex-grow: 1;
 }
 
-.spacer{
+.spacer {
   flex-grow: 1;
 }
 
-.card-header .btn-close{
+.card-header .btn-close {
   width: 0.1em;
   height: 0.1em;
 }
