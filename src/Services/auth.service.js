@@ -4,6 +4,7 @@ import { REGISTRATION, LOGIN } from './Urls';
 
 const API_URL = process.env.REACT_APP_BASE_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
+const BEARER_TOKEN = process.env.REACT_APP_BEARER_TOKEN;
 
 const header = {
   headers: {
@@ -13,14 +14,25 @@ const header = {
   },
 };
 
-const register = (username, email, password, currentUser) => {
-  return axios.post(`${API_URL + REGISTRATION}`, {
-    username: username,
-    email: email,
-    password: password,
-    role: 'admin',
-    peopleId: currentUser.user.peopleId,
-  });
+const regheader = {
+  headers: {
+    Authorization: `Bearer ${BEARER_TOKEN}`,
+    'Content-Type': 'application/json',
+  },
+};
+
+const register = (username, email, password, currentUserId) => {
+  return axios.post(
+    `${API_URL + REGISTRATION}`,
+    {
+      username: username,
+      email: email,
+      password: password,
+      role: 'admin',
+      peopleId: currentUserId,
+    },
+    regheader
+  );
 };
 
 const login = (username, password) => {

@@ -12,6 +12,7 @@ const Register = () => {
 
   const { message } = useSelector((state) => state.message);
   const { user: currentUser } = useSelector((state) => state.auth);
+  const adminID = currentUser.user.peopleId;
 
   const dispatch = useDispatch();
 
@@ -52,7 +53,7 @@ const Register = () => {
 
     setSuccessful(false);
 
-    dispatch(register({ username, email, password, currentUser }))
+    dispatch(register({ username, email, password, adminID }))
       .unwrap()
       .then(() => {
         setSuccessful(true);
