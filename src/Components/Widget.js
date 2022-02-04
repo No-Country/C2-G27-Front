@@ -26,5 +26,5 @@ Widget.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onRemoveItem: PropTypes.func,
-  component: PropTypes.element
+  component: PropTypes.func.isRequired
 }

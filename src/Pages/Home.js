@@ -1,18 +1,17 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import { useLocation } from 'react-router-dom';
 import Footer from '../Components/FooterDash';
 import WidgetsBoard from '../Components/WidgetsBoard';
 import SearchBar from '../Components/SearchBar';
 import UserCard from '../Components/UserCard';
 import NavBarResponsive from '../Components/NavBarResponsive';
+import Defaults from '../Assets/ReactGridLayout/Defaults.json';
+import {allWidgets} from '../Utils/widgets';
 
 export default function Home() {
-  const location = useLocation();
-
-  console.log(location);
-  return (
+  const homeDefaults = Defaults.home;  
+return (
     <div style={{width:'100%', minHeight:'100vh'}}>
       <NavBarResponsive />
       <Container>
@@ -28,7 +27,7 @@ export default function Home() {
               </Col>
             </Row>
             <Row>
-              <WidgetsBoard />
+              <WidgetsBoard defaults={homeDefaults} widgets={allWidgets}/>
             </Row>
           </Col>
         </Row>
