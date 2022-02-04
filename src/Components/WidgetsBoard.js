@@ -1,85 +1,114 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import '../Assets/ReactGridLayout/styles.css';
 import '../Assets/ReactResizable/styles.css';
 import PropTypes from 'prop-types';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import {
+  FormGroup,
+  Input,
+  Label,
   Button,
 } from 'reactstrap';
-import BarsChart from "./BarsChart";
-import LinesChart from './LinesChart';
-import PiesChart from './PiesChart'
 import Widget from './Widget';
-import ComposedsChart from './ComposedsChart';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
-export default function WidgetsBoard (props) { 
-  const {defaults} = props;
-  const [layouts, setLayouts] = useState(defaults.layouts);
-  const widgets = {
-    "BarsChart":BarsChart,
-    "PiesChart":PiesChart,
-    "LinesChart":LinesChart,
-    "ComposedsChart":ComposedsChart
-  } ;
-  
-  return (
-      <div>
-        <Button onClick={()=>setLayouts(defaults.layouts)}>Reset Layout</Button>
-        <ResponsiveReactGridLayout
-          className="layout"
-          cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
-          rowHeight={30}
-          layouts={layouts}
-          onLayoutChange={(layout, layoutss) =>
-            setLayouts(layoutss)            
-          }
-        >
-          <div
-            key={defaults.widgets.key[0]}
-            className="widget"            
-            >
-              <Widget
-                id={defaults.widgets.id[0]}
-                title={defaults.widgets.title[0]}          
-                component={widgets[defaults.widgets.component[0]]} />
-            </div>
-          
-            <div
-            key={defaults.widgets.key[1]}
-            className="widget"            
-            >
-              <Widget
-                id={defaults.widgets.id[1]}
-                title={defaults.widgets.title[1]}          
-                component={widgets[defaults.widgets.component[1]]} />
-            </div>
-            
-            <div
-            key={defaults.widgets.key[2]}
-            className="widget"            
-            >
-              <Widget
-                id={defaults.widgets.id[2]}
-                title={defaults.widgets.title[2]}          
-                component={widgets[defaults.widgets.component[2]]} />
-            </div>
-            
-            <div
-            key={defaults.widgets.key[3]}
-            className="widget"            
-            >
-              <Widget
-                id={defaults.widgets.id[3]}
-                title={defaults.widgets.title[3]}          
-                component={widgets[defaults.widgets.component[3]]} />
-            </div>
-
-        </ResponsiveReactGridLayout>
-      </div>
-    );
+export default function WidgetsBoard(props) {
+  const getFromLS = (key) => {
+    let ls = {};
+    if (global.localStorage) {
+      try {
+        ls = JSON.parse(global.localStorage.getItem(key)) || {};
+      } catch (e) { /* blabla */ }
+    }
+    return ls[key];
   };
 
-  WidgetsBoard.propTypes = {
-    defaults: PropTypes.element.isRequired
+  const saveToLS = (key, value) => {
+    if (global.localStorage) {
+      global.localStorage.setItem(
+        key,
+        JSON.stringify({
+          [key]: value
+        })
+      );
+    };
   }
+  const { defaults, widgets } = props;
+  const [layouts, setLayouts] = useState(
+    getFromLS("layouts") || defaults.layouts
+  );
+  const [items, setItems] = useState( getFromLS("items") || defaults.widgets );
+  const onLayoutSave = () => {
+    saveToLS("layouts", layouts);
+  };
+  const onLayoutChange = (layout, allLayouts) => {    
+    saveToLS("layouts", allLayouts);
+    saveToLS("items", items);
+    setItems(items);    
+    setLayouts(allLayouts);
+    };
+  const onRemoveItem = (itemId) => {
+    setItems(items.filter((i) => i !== itemId));    
+  };
+  const onAddItem = (itemId) => {
+    if (!items.includes(itemId))
+      setItems([...items, itemId]);      
+  };
+  const handleChange = (e) => {
+    if (e.target.checked) {
+      onAddItem(e.target.name);
+          } else {
+      onRemoveItem(e.target.name);
+          }
+  };
+  return (
+    <div>
+      <Button onClick={() => {
+        setItems(defaults.widgets);
+        setLayouts(defaults.layouts)
+      }}>Reset Layout</Button>
+      <Button onClick={() => onLayoutSave()}>Save Layout</Button>
+
+      {
+        defaults.widgets.map((i) => (
+          <FormGroup check>
+            <Input name={i} type="checkbox" onChange={handleChange} checked={items.includes(i)} />    
+            <Label check>
+              {i}
+            </Label>
+          </FormGroup>
+        ))
+      }
+      
+      <ResponsiveReactGridLayout
+        className="layout"
+        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+        rowHeight={30}
+        layouts={layouts}
+        onLayoutChange={onLayoutChange}
+      >
+        {
+          items.map((key) => (
+            <div
+              key={defaults.all_widgets[key].key}
+              className="widget"
+              data-grid={defaults.all_widgets[key].data_grid}
+            >
+              <Widget
+                id={defaults.all_widgets[key].id}
+                title={defaults.all_widgets[key].title}
+                onRemoveItem={onRemoveItem}
+                component={widgets[defaults.all_widgets[key].component]}
+              />
+            </div>
+          ))
+        }
+      </ResponsiveReactGridLayout>
+    </div>
+  );
+};
+
+WidgetsBoard.propTypes = {
+  defaults: PropTypes.object.isRequired ,
+  widgets: PropTypes.object.isRequired
+}

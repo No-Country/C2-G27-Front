@@ -7,6 +7,7 @@ import SearchBar from '../Components/SearchBar';
 import UserCard from '../Components/UserCard';
 import NavBarResponsive from '../Components/NavBarResponsive';
 import Defaults from '../Assets/ReactGridLayout/Defaults.json';
+import {allWidgets} from '../Utils/widgets';
 
 export default function Home() {
   const homeDefaults = Defaults.home;  
@@ -26,7 +27,7 @@ return (
               </Col>
             </Row>
             <Row>
-              <WidgetsBoard defaults={homeDefaults}/>
+              <WidgetsBoard defaults={homeDefaults} widgets={allWidgets}/>
             </Row>
           </Col>
         </Row>
